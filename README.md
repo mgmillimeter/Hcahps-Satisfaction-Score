@@ -1,8 +1,20 @@
 # HCAHPS Patient Satisfaction Scores: U.S. Hospital Performance Analysis 2019
 
-This project features a _[dashboard](https://public.tableau.com/app/profile/martin.guiller.iii/viz/HCAHPSPatientSatisfactionScores-U_S_HospitalPerformanceAnalysis/Dashboard1)_ built using synthetic data designed to replicate the structure and trends of real-world HCAHPS (Hospital Consumer Assessment of Healthcare Providers and Systems) patient satisfaction survey results.
 
-![Scrnshot_project](https://github.com/user-attachments/assets/a86b4d2d-5dfc-4018-8429-e127cf308c90)
+## Project Background
+HCAHPS Insights, established to improve patient care and satisfaction, focuses on analyzing hospital performance based on national survey data. The project evaluates key metrics, including communication, responsiveness, and care quality, with rankings provided by state and hospital size.
+
+The analysis leverages a substantial dataset, highlighting state-level performance patterns and ownership impact. By thoroughly analyzing this data, the project uncovers actionable insights aimed at enhancing healthcare service delivery and patient outcomes.
+
+Insights and recommendations are provided on the following key areas:
+- **_Percent of Patients Rating Hospital 9 or 10_**: Measures the overall satisfaction, indicating the percentage of patients who gave their hospital the highest ratings for their experience.
+- **_Percent Difference from Cohort Mean by Question_**: Compares how individual hospitals perform against the cohort average for specific survey questions, highlighting strengths and weaknesses.
+- **_Cohort Hospital Difference Spread_**: Shows the range of satisfaction scores within a group of hospitals, indicating variability in patient experiences across the cohort.
+- **_Hospital Ownership Types & Satisfaction_**: Examines how different hospital ownership types (e.g., for-profit, non-profit, government) impact patient satisfaction, focusing on top ratings (9 or 10).
+- **_Best & Worst Performing States_**: Identifies states with the highest and lowest percentages of patients giving top satisfaction scores, providing a geographic view of patient experiences.
+
+
+
 
 ## Summary of Insights
 
