@@ -13,10 +13,7 @@ Insights and recommendations are provided on the following key areas:
 - **_Hospital Ownership Types & Satisfaction_**: Examines how different hospital ownership types (e.g., for-profit, non-profit, government) impact patient satisfaction, focusing on top ratings (9 or 10).
 - **_Best & Worst Performing States_**: Identifies states with the highest and lowest percentages of patients giving top satisfaction scores, providing a geographic view of patient experiences.
 
-
-
-
-## Summary of Insights
+## Data Structure Overview
 
 #### Table 1: National Average % of Patients Reporting Positive Experiences in HCAHPS Survey
 
