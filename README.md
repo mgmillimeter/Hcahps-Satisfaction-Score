@@ -11,192 +11,64 @@ Insights and recommendations are provided on the following key areas:
 - **_Percent Difference from Cohort Mean by Question_**: Compares how individual hospitals perform against the cohort average for specific survey questions, highlighting strengths and weaknesses.
 - **_Cohort Hospital Difference Spread_**: Shows the range of satisfaction scores within a group of hospitals, indicating variability in patient experiences across the cohort.
 - **_Hospital Ownership Types & Satisfaction_**: Examines how different hospital ownership types (e.g., for-profit, non-profit, government) impact patient satisfaction, focusing on top ratings (9 or 10).
-- **_Best & Worst Performing States_**: Identifies states with the highest and lowest percentages of patients giving top satisfaction scores, providing a geographic view of patient experiences.
 
 ## Data Structure Overview
 
-#### Table 1: National Average % of Patients Reporting Positive Experiences in HCAHPS Survey
+HCAHPS survey dataset as seen below consists of 2 tables: hcahps_survey, hospital_beds, with a total row count of 339,977 records.
+![ERD_2](https://github.com/user-attachments/assets/5448d307-a464-47ba-891f-4291aa256eec)
 
-| **HCAHPS Measure**                                                          | **% of Patients Reporting "Always"** |
-|------------------------------------------------------------------------------|---------------------------------------|
-| Doctors "always" treated them with courtesy and respect                     | 79.99%                                |
-| Nurses "always" treated them with courtesy and respect                      | 79.65%                                |
-| Doctors "always" communicated well                                          | 75.18%                                |
-| Nurses "always" communicated well                                           | 74.63%                                |
-| Doctors "always" listened carefully                                         | 73.83%                                |
-| Staff "always" explained new medications                                    | 73.23%                                |
-| Nurses "always" listened carefully                                          | 72.34%                                |
-| Nurses "always" explained things so they could understand                   | 71.79%                                |
-| Doctors "always" explained things so they could understand                  | 71.61%                                |
-| Room was "always" clean                                                     | 70.21%                                |
-| Patients "always" received bathroom help as soon as they wanted             | 66.48%                                |
-| Patients "always" received help as soon as they wanted                      | 65.59%                                |
-| Patients "always" received call button help as soon as they wanted          | 64.31%                                |
-| Staff "always" explained                                                    | 62.59%                                |
-| "Always" quiet at night                                                     | 58.97%                                |
-| Staff "always" explained possible side effects                              | 51.85%                                |
+Before analysis, dataset checks were conducted to ensure data quality and understand the structure of the data. These checks helped identify issues, validate key fields, and prepare the data for analysis. The SQL Queries can be found [here](https://github.com/mgmillimeter/Hcahps-Satisfaction-Score/blob/main/hcahps_survey_dataset.sql).
 
----
+## Executive Summary
+#### Overview of Findings ####
 
-#### Table 2: Top 10 States with the Highest Percentage of Patients Rating 9 or 10
+The analysis highlights key differences in patient satisfaction across hospitals. There are notable variations in the percentage of patients giving high ratings (9 or 10), reflecting overall satisfaction levels. Some hospitals perform better or worse than the average on specific survey questions, pointing to areas of strength and improvement. The spread of satisfaction scores within hospital groups shows varying patient experiences, indicating inconsistencies in care. Lastly, hospital ownership plays a role in satisfaction, with non-profit hospitals generally receiving higher ratings than government or for-profit hospitals.
 
-| **State**            | **% Patients Rating 9 or 10** |
-|-----------------------|-------------------------------|
-| Wisconsin            | 76%                          |
-| Maine                | 75%                          |
-| Indiana              | 73%                          |
-| New Hampshire        | 73%                          |
-| Oregon               | 73%                          |
-| Ohio                 | 72%                          |
-| Louisiana            | 72%                          |
-| Rhode Island         | 72%                          |
-| Iowa                 | 71%                          |
-| Utah                 | 71%                          |
+Below is the overview page from the Tableau Dashboad. The entire interactive dashboard can be downloaded [here](https://public.tableau.com/app/profile/martin.guiller.iii/viz/U_S_HCAHPSPatientsSatisfactionScore/Dashboard1).
+![Dashboard 1](https://github.com/user-attachments/assets/a8b8a516-aaf9-4672-85f2-136989bc16a4)
 
----
+#### Percent of Patients Rating Hospital 9 or 10 ####
+- The overall percentage of patients rating their hospital experience as 9 or 10 varies significantly across facilities, indicating disparities in patient satisfaction levels ranging from 99% down to 19%.
 
-#### Table 3: Bottom 10 States with the Lowest Percentage of Patients Rating 9 or 10
+- Hospitals with higher ratings are likely excelling in key patient-centered factors such as communication, which has a nationwide average of 74.62% satisfaction. However, areas like cleanliness and responsiveness fall below 71%, with the lowest satisfaction being in staff communication about potential side effects, which only receives a 51.85% satisfaction rate.
 
-| **State**               | **% Patients Rating 9 or 10** |
-|--------------------------|-------------------------------|
-| Guam                   | 64%                          |
-| New York               | 62%                          |
-| District of Columbia   | 62%                          |
-| Alaska                 | 61%                          |
-| North Dakota           | 60%                          |
-| Montana                | 60%                          |
-| American Samoa         | 59%                          |
-| Virgin Islands         | 59%                          |
-| Puerto Rico            | 51%                          |
-| Northern Mariana Islands | 49%                        |  
+#### Percent Difference from Cohort Mean by Question ####
 
----
+- Positive Differences: Hospitals exceeding 15% above the cohort mean or the national average often stand out in areas such as staff communication, quietness of the environment, or timely assistance, indicating strong operational and cultural practices.
 
-#### Table 4: Best Performing Hospitals by Size: HCAHPS Survey (Percentage of Patients Rating 9 or 10)
+- Negative Differences: Hospitals with substantial negative deviations from the national average (more than negative 10% on average) struggled in areas like discharge planning, room cleanliness, or explaining treatments effectively to patients.
+
+- This difference highlights not just the overall satisfaction but pinpoints areas where individual hospitals excel or lag compared to their peers, offering insights into specific operational strengths and weaknesses.
+
+ #### Cohort Hospital Difference Spread #### 
+
+ ![image](https://github.com/user-attachments/assets/db58f750-0ea8-4c25-8f87-c79fcdb61b61)
  
-#### _Large Hospitals_
-| Provider CCN | Hospital Name                     | Percentage |
-|--------------|-----------------------------------|------------|
-| 190184       | Citizens Medical Center           | 99%        |
-| 390312       | Cancer Treatment Centers of America | 97%      |
-| 451349       | Swisher Memorial Hospital         | 95%        |
-| 141330       | Hopedale Hospital                 | 93%        |
-| 521356       | Bellin Health Oconto Hospital     | 92%        |
+ - The spread of scores within a cohort (group of hospitals) reveals significant variability in patient satisfaction.
+     - For example, some cohorts may show a narrow range of satisfaction scores, indicating consistent patient experiences across facilities.
+     - Conversely, a wide spread in scores indicates variability, with some hospitals performing exceptionally well and others lagging significantly behind.
+  
+ - This variability suggests inconsistencies in how patient care standards are implemented across the cohort, which could be due to differences in staff training, resources, or patient demographics.
 
-#### _Medium Hospitals_
-| Provider CCN | Hospital Name                     | Percentage |
-|--------------|-----------------------------------|------------|
-| 520196       | Oakleaf Surgical Hospital         | 95%        |
-| 140100       | Midwestern Region Med Center      | 95%        |
-| 101313       | Mariners Hospital                 | 95%        |
-| 241327       | Sleepy Eye Municipal Hospital     | 94%        |
-| 370234       | Oklahoma Heart Hospital South, LLC| 94%        |
+#### Hospital Ownership Types & Satisfaction ####
+![image](https://github.com/user-attachments/assets/fd6877f8-987f-40fd-a199-d57cbdd9ef1a)
 
-#### _Small Hospitals_
-| Provider CCN | Hospital Name                     | Percentage |
-|--------------|-----------------------------------|------------|
-| 241316       | Bigfork Valley Hospital           | 97%        |
-| 351326       | First Care Health Center          | 96%        |
-| 370215       | Oklahoma Heart Hospital, LLC      | 95%        |
-| 191325       | Lady of the Sea General Hospital  | 95%        |
-| 360352       | Surgical Hospital at Southwoods   | 94%        |
+- Patient satisfaction levels vary significantly by hospital ownership type
+  - Non-Profit Hospitals: These facilities, particularly voluntary non-profits, generally have higher ratings (9 or 10) which is 5.95% more than the Government Type Hospitals. This could be attributed to their focus on community service and reinvestment of profits into patient care.
+  - Government Hospitals: State, local, and federal government hospitals tend to have lower ratings, likely reflecting operational challenges such as budget constraints, aging infrastructure, and staffing shortages.
+  - For-Profit Hospitals: While these hospitals aim for operational efficiency, their focus on financial performance might limit investments in patient-centered services, resulting in slightly lower satisfaction ratings compared to non-profits.
+ - The type of ownership appears to correlate with patient satisfaction, reflecting different priorities and operational models that impact the patient experience.
 
 ---
 
 ## Recommendations
-  - **Improve Communication and Patient Education:** Train doctors and nurses in active listening and clear communication. Provide accessible materials and digital tools to better explain medications and side effects.
-  - **Enhance Timeliness of Care:** Increase staffing during peak hours and implement smart call systems to improve response times for patient needs, such as bathroom assistance and call buttons.
-  - **Replicate Best Practices from High-Performing States:** Analyze successful strategies from top states like Wisconsin and Maine. Share and implement these practices nationwide to improve patient satisfaction across the board.
- 
-## Dataset Limitation:
-  - **Synthetic Dataset & Limited Real-World Representation:** The dataset is synthetic and does not reflect real-world patient distributions, healthcare conditions, or behaviors. This limitation means that the analysis may not fully capture the complexities and variances present in actual patient populations, which could impact the accuracy and generalizability of the findings.
+  - **Percent of Patients Rating Hospital 9 or 10:** Focus on improving communication with patients, especially about potential side effects, where satisfaction is just 51.85%. Training staff on clear and empathetic communication can help raise overall satisfaction closer to the 74.62% national average for this category.
 
----
+  - **Percent Difference from Cohort Mean by Question:** Target areas with large negative gaps from the cohort average, such as discharge planning and cleanliness, which fall below 71%. Small improvements of even 5-10% in these areas can make a big difference in closing the satisfaction gap.
+  
+  - **Cohort Hospital Difference Spread:** Reduce inconsistencies within hospital groups by standardizing practices across facilities. For instance, if the satisfaction range is 99% to 19%, focus on bringing lower-performing hospitals closer to the group's median by sharing best practices.
 
-## Exploratory Data Analysis (EDA) & Data Manipulation Process using PostgreSQL:
-  - **Synthetic Hospital Dataset:**
-    - **Table 1: hcahps_survey_dataset** - This table contains data from the HCAHPS (Hospital Consumer Assessment of Healthcare Providers and Systems) survey, which measures patients' experiences and satisfaction with hospital care across the United States. It includes hospital information, survey results, patient feedback, and quality comparisons.
-    - **Table 2: hospital_beds** - This table provides information about the capacity of hospitals, specifically focusing on the number of beds available at each facility, along with the corresponding hospital identifiers and names.
-   
----
+  - **Hospital Ownership Types & Satisfaction:** For government hospitals, which score 5.95% lower than non-profits on average, address challenges like staffing shortages, improving staff communications and resource constraints by allocating more funding and improving efficiency in operations.
 
-This SQL [query](https://github.com/mgmillimeter/Tracking-2022-Flu-Vaccinations-Among-Active-Patients-in-Massachusetts/blob/main/PostgreSQL-Flu%20Shots%20immunizations%202022.sql) The dataset represents U.S. hospital performance and capacity, combining two key sources of information:
 
-HCAHPS Patient Survey Data: Provides insights into patients' experiences and satisfaction with hospital care, including metrics like star ratings, response rates, and national comparisons on areas such as mortality, safety of care, and patient experience.
-Hospital Beds Data: Contains information about the number of beds available in each hospital, indicating its capacity.
-By linking these datasets, the query enables analysis of the relationship between hospital capacity and patient satisfaction, quality of care, and survey response patterns, offering valuable insights into healthcare performance across the country.
 
-```sql
-SELECT 
-    -- Convert facility_id to a 6-character zero-padded string for consistent formatting
-    LPAD(CAST(hs.facility_id AS INTEGER)::TEXT, 6, '0') AS hospital_id,
-    
-    -- Select basic hospital information
-    hs.facility_name,
-    hs.address,
-    hs.city,
-    hs.state,
-    hs.zip_code,
-    hs.county_name,
-    hs.phone_number,
-    
-    -- Select HCAHPS survey-specific fields
-    hs.hcahps_measure_id,
-    hs.hcahps_question,
-    hs.hcahps_answer_description,
-    hs.patient_survey_star_rating,
-    hs.patient_survey_star_rating_footnote,
-    
-    -- Include the number of beds from the joined table
-    bd.number_of_beds,
-    
-    -- Include detailed HCAHPS response data
-    hs.hcahps_answer_percent,
-    hs.hcahps_answer_percent_footnote,
-    hs.hcahps_linear_mean_value,
-    hs.number_of_completed_surveys,
-    hs.number_of_completed_surveys_footnote,
-    hs.survey_response_rate_percent,
-    hs.survey_response_rate_percent_footnote,
-    
-    -- Format the start and end dates to a standard date format
-    TO_DATE(hs.start_date, 'MM/DD/YYYY') AS date_start,
-    TO_DATE(hs.end_date, 'MM/DD/YYYY') AS date_end,
-    
-    -- Include additional hospital details
-    hs.year,
-    hs.hospital_type,
-    hs.hospital_ownership,
-    hs.hospital_overall_rating,
-    hs.hospital_overall_rating_footnote,
-    
-    -- Include various national comparison metrics from HCAHPS data
-    hs.mortality_national_comparison,
-    hs.mortality_national_comparison_footnote,
-    hs.safety_of_care_national_comparison,
-    hs.safety_of_care_national_comparison_footnote,
-    hs.readmission_national_comparison,
-    hs.readmission_national_comparison_footnote,
-    hs.patient_experience_national_comparison,
-    hs.patient_experience_national_comparison_footnote,
-    hs.effectiveness_of_care_national_comparison,
-    hs.effectiveness_of_care_national_comparison_footnote,
-    hs.timeliness_of_care_national_comparison,
-    hs.timeliness_of_care_national_comparison_footnote,
-    hs.efficient_use_of_medical_imaging_national_comparison,
-    hs.efficient_use_of_medical_imaging_national_comparison_footnote
-FROM 
-    -- Specify the schema and table for HCAHPS survey data
-    "postgres"."Hospital_Data".hcahps_survey AS hs
-    
-    -- Perform a LEFT JOIN with the hospital_beds table to include bed information
-    LEFT JOIN "postgres"."Hospital_Data".hospital_beds AS bd
-    ON CAST(hs.facility_id AS INTEGER) = CAST(bd.hospital_id AS INTEGER); -- Match records using facility_id and hospital_id
-```
----
-
-## Data Sources
-- Dataset can be found _[here](https://www.kaggle.com/datasets/abrambeyer/us-hospital-customer-satisfaction-20162020?select=cms_hospital_patient_satisfaction_2019.csv)_
-
-- _Credit:_ https://www.kaggle.com/abrambeyer
-    
