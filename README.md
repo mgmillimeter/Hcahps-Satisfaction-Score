@@ -17,7 +17,9 @@ Insights and recommendations are provided on the following key areas:
 HCAHPS survey dataset as seen below consists of 2 tables: hcahps_survey, hospital_beds, with a total row count of 339,977 records.
 ![ERD_2](https://github.com/user-attachments/assets/5448d307-a464-47ba-891f-4291aa256eec)
 
-Before analysis, dataset checks were conducted to ensure data quality and understand the structure of the data. These checks helped identify issues, validate key fields, and prepare the data for analysis. The SQL Queries can be found [here](https://github.com/mgmillimeter/Hcahps-Satisfaction-Score/blob/main/hcahps_survey_dataset.sql).
+Before analysis, dataset checks were conducted to ensure data quality and understand the structure of the data. These checks helped identify issues, validate key fields, and prepare the data for analysis. 
+
+The SQL Queries can be found [here](https://github.com/mgmillimeter/Hcahps-Satisfaction-Score/blob/main/hcahps_survey_dataset.sql).
 
 ## Executive Summary
 #### Overview of Findings ####
