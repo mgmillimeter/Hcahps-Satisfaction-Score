@@ -1,65 +1,69 @@
+/* HCAHPS SURVEY DATA EXPLORATION */
+
+-- Normalize hospital capacity data to clean and prepare for analysis
+WITH norm_beds AS (
+    SELECT 
+        -- Standardize facility_id to a 6-digit string by padding with zeros
+        LPAD(CAST(facility_id AS INTEGER)::TEXT, 6, '0') AS facility_id, 
+        hospital_name,
+        
+        -- Convert start and end date columns to DATE format for consistency
+        TO_DATE(date_start, 'MM/DD/YYYY') AS start_date,
+        TO_DATE(date_end, 'MM/DD/YYYY') AS end_date,
+        
+        -- Safely cast the number_of_beds column to INTEGER
+        -- Handles cases where the value is 'NULL' or empty by converting them to NULL
+        CASE 
+            WHEN number_of_beds = 'NULL' OR number_of_beds = '' THEN NULL 
+            ELSE CAST(number_of_beds AS INTEGER) 
+        END AS number_of_beds
+    FROM 
+        "Hospital_Data".hospital_capacity
+)
+
+-- Main query to retrieve and join hospital capacity and HCAHPS survey data
 SELECT 
-    -- Convert facility_id to a 6-character zero-padded string for consistent formatting
-    LPAD(CAST(hs.facility_id AS INTEGER)::TEXT, 6, '0') AS hospital_id,
+    -- Standardize hospital_id to a 6-digit string for consistency
+    LPAD(CAST(facility_id AS INTEGER)::TEXT, 6, '0') AS hospital_id,
     
-    -- Select basic hospital information
-    hs.facility_name,
-    hs.address,
-    hs.city,
-    hs.state,
-    hs.zip_code,
-    hs.county_name,
-    hs.phone_number,
+    -- Retrieve hospital metadata
+    facility_name,
+    address,
+    city,
+    state,
+    zip_code,
+    county_name,
+    phone_number,
     
-    -- Select HCAHPS survey-specific fields
-    hs.hcahps_measure_id,
-    hs.hcahps_question,
-    hs.hcahps_answer_description,
-    hs.patient_survey_star_rating,
-    hs.patient_survey_star_rating_footnote,
-    
-    -- Include the number of beds from the joined table
+    -- Include normalized number_of_beds from the normalized dataset
     bd.number_of_beds,
     
-    -- Include detailed HCAHPS response data
-    hs.hcahps_answer_percent,
-    hs.hcahps_answer_percent_footnote,
-    hs.hcahps_linear_mean_value,
-    hs.number_of_completed_surveys,
-    hs.number_of_completed_surveys_footnote,
-    hs.survey_response_rate_percent,
-    hs.survey_response_rate_percent_footnote,
+    -- Include HCAHPS survey data
+    hcahps_measure_id,
+    hcahps_question,
+    hcahps_answer_description,
+    hcahps_answer_percent,
+    hcahps_answer_percent_footnote,
+    number_of_completed_surveys,
+    number_of_completed_surveys_footnote,
+    survey_response_rate_percent,
+    survey_response_rate_percent_footnote,
     
-    -- Format the start and end dates to a standard date format
-    TO_DATE(hs.start_date, 'MM/DD/YYYY') AS date_start,
-    TO_DATE(hs.end_date, 'MM/DD/YYYY') AS date_end,
+    -- Include the year of the survey and hospital metadata
+    year,
+    hospital_type,
+    hospital_ownership,
     
-    -- Include additional hospital details
-    hs.year,
-    hs.hospital_type,
-    hs.hospital_ownership,
-    hs.hospital_overall_rating,
-    hs.hospital_overall_rating_footnote,
-    
-    -- Include various national comparison metrics from HCAHPS data
-    hs.mortality_national_comparison,
-    hs.mortality_national_comparison_footnote,
-    hs.safety_of_care_national_comparison,
-    hs.safety_of_care_national_comparison_footnote,
-    hs.readmission_national_comparison,
-    hs.readmission_national_comparison_footnote,
-    hs.patient_experience_national_comparison,
-    hs.patient_experience_national_comparison_footnote,
-    hs.effectiveness_of_care_national_comparison,
-    hs.effectiveness_of_care_national_comparison_footnote,
-    hs.timeliness_of_care_national_comparison,
-    hs.timeliness_of_care_national_comparison_footnote,
-    hs.efficient_use_of_medical_imaging_national_comparison,
-    hs.efficient_use_of_medical_imaging_national_comparison_footnote
-FROM 
-    -- Specify the schema and table for HCAHPS survey data
-    "postgres"."Hospital_Data".hcahps_survey AS hs
-    
-    -- Perform a LEFT JOIN with the hospital_beds table to include bed information
-    LEFT JOIN "postgres"."Hospital_Data".hospital_beds AS bd
-    ON CAST(hs.facility_id AS INTEGER) = CAST(bd.hospital_id AS INTEGER); -- Match records using facility_id and hospital_id
+    -- Include normalized start and end dates for the survey
+    TO_DATE(start_date, 'MM/DD/YYYY') AS date_start,
+    TO_DATE(end_date, 'MM/DD/YYYY') AS date_end
+
+FROM "Hospital_Data".hcahps_survey AS hs
+
+-- Perform a LEFT JOIN to include number_of_beds from the normalized hospital_beds dataset
+-- Ensure all survey data is retained even if bed count data is missing
+LEFT JOIN "postgres"."Hospital_Data".hospital_beds AS bd
+ON CAST(hs.facility_id AS INTEGER) = CAST(bd.hospital_id AS INTEGER)
+
+-- Filter out rows where the survey response percentage is NULL
+WHERE hcahps_answer_percent IS NOT NULL
