@@ -21,6 +21,9 @@ Before analysis, dataset checks were conducted to ensure data quality and unders
 
 The SQL Queries can be found [here](https://github.com/mgmillimeter/Hcahps-Satisfaction-Score/blob/main/hcahps_survey_dataset.sql).
 
+The Exploratory Data Analysis (EDA) is mainly done on Tableau. You can download and view it [here](https://public.tableau.com/app/profile/martin.guiller.iii/viz/U_S_HCAHPSPatientsSatisfactionScore/Dashboard1).
+
+
 ## Executive Summary
 #### Overview of Findings ####
 
