@@ -1,16 +1,18 @@
 # HCAHPS Patient Satisfaction Scores: U.S. Hospital Performance Analysis 2019
 
+---
+
 ## Table of Contents
 
-I. [Project Background](#project-background)
+I. [Project Background](#i-project-background)
 
-II. [Data Structure Overview](#data-structure-overview)
+II. [Data Structure Overview](#ii-data-structure-overview)
 
-III. [Executive Summary](#executive-summary)
+III. [Executive Summary](#iii-executive-summary)
 
-IV. [Recommendations](#recommendations)
+IV. [Recommendations](#iv-recommendations)
 
-V. [References](#references)
+V. [References](#v-references)
 
 ---
 
