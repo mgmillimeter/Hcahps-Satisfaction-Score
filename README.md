@@ -1,5 +1,18 @@
 # HCAHPS Patient Satisfaction Scores: U.S. Hospital Performance Analysis 2019
 
+# Table of Contents
+
+I. [Project Background](#project-background)
+
+II. [Data Structure Overview](#data-structure-overview)
+
+III. [Executive Summary](#executive-summary)
+
+IV. [Recommendations](#recommendations)
+
+V. [References](#references)
+
+---
 
 ## Project Background
 HCAHPS Insights, established to improve patient care and satisfaction, focuses on analyzing hospital performance based on national survey data. The project evaluates key metrics, including communication, responsiveness, and care quality, with rankings provided by state and hospital size.
@@ -75,5 +88,10 @@ Below is the overview page from the Tableau Dashboad. The entire interactive das
 
   - **Hospital Ownership Types & Satisfaction:** For government hospitals, which score 5.95% lower than non-profits on average, address challenges like staffing shortages, improving staff communications and resource constraints by allocating more funding and improving efficiency in operations.
 
+---
+
+## References
+
+- Dataset Source: [**U.S. Hospital Customer Satisfaction 2016-2020**](https://www.kaggle.com/datasets/abrambeyer/us-hospital-customer-satisfaction-20162020?select=cms_hospital_patient_satisfaction_2019.csv)
 
 
