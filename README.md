@@ -14,7 +14,7 @@ V. [References](#references)
 
 ---
 
-## Project Background
+## I. Project Background
 HCAHPS Insights, established to improve patient care and satisfaction, focuses on analyzing hospital performance based on national survey data. The project evaluates key metrics, including communication, responsiveness, and care quality, with rankings provided by state and hospital size.
 
 The analysis leverages a substantial dataset, highlighting state-level performance patterns and ownership impact. By thoroughly analyzing this data, the project uncovers actionable insights aimed at enhancing healthcare service delivery and patient outcomes.
@@ -25,7 +25,7 @@ Insights and recommendations are provided on the following key areas:
 - **_Cohort Hospital Difference Spread_**: Shows the range of satisfaction scores within a group of hospitals, indicating variability in patient experiences across the cohort.
 - **_Hospital Ownership Types & Satisfaction_**: Examines how different hospital ownership types (e.g., for-profit, non-profit, government) impact patient satisfaction, focusing on top ratings (9 or 10).
 
-## Data Structure Overview
+## II. Data Structure Overview
 
 HCAHPS survey dataset as seen below consists of 2 tables: hcahps_survey, hospital_beds, with a total row count of 339,977 records.
 ![ERD_2](https://github.com/user-attachments/assets/5448d307-a464-47ba-891f-4291aa256eec)
@@ -37,7 +37,7 @@ The SQL Queries can be found [here](https://github.com/mgmillimeter/Hcahps-Satis
 The Exploratory Data Analysis (EDA) is mainly done on Tableau. You can download and view it [here](https://public.tableau.com/app/profile/martin.guiller.iii/viz/U_S_HCAHPSPatientsSatisfactionScore/Dashboard1).
 
 
-## Executive Summary
+## III. Executive Summary
 #### Overview of Findings ####
 
 The analysis highlights key differences in patient satisfaction across hospitals. There are notable variations in the percentage of patients giving high ratings (9 or 10), reflecting overall satisfaction levels. Some hospitals perform better or worse than the average on specific survey questions, pointing to areas of strength and improvement. The spread of satisfaction scores within hospital groups shows varying patient experiences, indicating inconsistencies in care. Lastly, hospital ownership plays a role in satisfaction, with non-profit hospitals generally receiving higher ratings than government or for-profit hospitals.
@@ -79,7 +79,7 @@ Below is the overview page from the Tableau Dashboad. The entire interactive das
 
 ---
 
-## Recommendations
+## IV. Recommendations
   - **Percent of Patients Rating Hospital 9 or 10:** Focus on improving communication with patients, especially about potential side effects, where satisfaction is just 51.85%. Training staff on clear and empathetic communication can help raise overall satisfaction closer to the 74.62% national average for this category.
 
   - **Percent Difference from Cohort Mean by Question:** Target areas with large negative gaps from the cohort average, such as discharge planning and cleanliness, which fall below 71%. Small improvements of even 5-10% in these areas can make a big difference in closing the satisfaction gap.
@@ -90,7 +90,7 @@ Below is the overview page from the Tableau Dashboad. The entire interactive das
 
 ---
 
-## References
+## V. References
 
 - Dataset Source: [**U.S. Hospital Customer Satisfaction 2016-2020**](https://www.kaggle.com/datasets/abrambeyer/us-hospital-customer-satisfaction-20162020?select=cms_hospital_patient_satisfaction_2019.csv)
 
