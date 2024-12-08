@@ -1,6 +1,6 @@
 # HCAHPS Patient Satisfaction Scores: U.S. Hospital Performance Analysis 2019
 
-# Table of Contents
+## Table of Contents
 
 I. [Project Background](#project-background)
 
