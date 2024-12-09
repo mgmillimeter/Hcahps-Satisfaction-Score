@@ -45,6 +45,7 @@ The Exploratory Data Analysis (EDA) is mainly done on Tableau. You can download 
 The analysis highlights key differences in patient satisfaction across hospitals. There are notable variations in the percentage of patients giving high ratings (9 or 10), reflecting overall satisfaction levels. Some hospitals perform better or worse than the average on specific survey questions, pointing to areas of strength and improvement. The spread of satisfaction scores within hospital groups shows varying patient experiences, indicating inconsistencies in care. Lastly, hospital ownership plays a role in satisfaction, with non-profit hospitals generally receiving higher ratings than government or for-profit hospitals.
 
 Below is the overview page from the Tableau Dashboad. The entire interactive dashboard can be downloaded [here](https://public.tableau.com/app/profile/martin.guiller.iii/viz/U_S_HCAHPSPatientsSatisfactionScore/Dashboard1).
+
 ![Dashboard 1](https://github.com/user-attachments/assets/a8b8a516-aaf9-4672-85f2-136989bc16a4)
 
 #### Percent of Patients Rating Hospital 9 or 10 ####
